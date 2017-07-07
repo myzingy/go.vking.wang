@@ -80,3 +80,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php do_action( 'woocommerce_after_checkout_registration_form', $checkout ); ?>
 	</div>
 <?php endif; ?>
+<script>
+    jQuery(function(){
+        var from=window.localStorage.getItem('fb.vking.wang');
+        if(from){
+            from=JSON.parse(from);
+            for(var i in from){
+                console.log(i,from[i]);
+                jQuery('input[name="billing_'+i+'"]').val(from[i]);
+            }
+        }
+    });
+
+</script>

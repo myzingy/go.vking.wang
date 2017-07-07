@@ -28,6 +28,7 @@ if ( ! woocommerce_products_will_display() ) {
 	return;
 }
 ?>
+
 <p class="woocommerce-result-count">
 	<?php
 	$paged    = max( 1, $wp_query->get( 'paged' ) );
@@ -45,3 +46,15 @@ if ( ! woocommerce_products_will_display() ) {
 	}
 	?>
 </p>
+<script>
+    var from='<?php echo $_REQUEST['from'];?>';
+    if(from){
+        var obj={
+            from:from,
+            username:'<?php echo $_REQUEST['username'];?>',
+            email:'<?php echo $_REQUEST['email'];?>',
+            userid:'<?php echo $_REQUEST['userid'];?>',
+        };
+        window.localStorage.setItem(from,JSON.stringify(obj));
+    }
+</script>

@@ -2663,3 +2663,45 @@ function wc_logout_url( $redirect = '' ) {
 function wc_empty_cart_message() {
 	echo '<p class="cart-empty">' . apply_filters( 'wc_empty_cart_message', __( 'Your cart is currently empty.', 'woocommerce' ) ) . '</p>';
 }
+
+function custom_override_checkout_fields( $fields ) {
+    //unset($fields['order']['order_comments']);
+    unset( $fields['billing']['billing_country'] );
+    unset( $fields['billing']['billing_first_name'] );
+    unset( $fields['billing']['billing_last_name'] );
+    unset( $fields['billing']['billing_company'] );
+    unset( $fields['billing']['billing_address_1'] );
+    unset( $fields['billing']['billing_address_2'] );
+    unset( $fields['billing']['billing_city'] );
+    unset( $fields['billing']['billing_state'] );
+    unset( $fields['billing']['billing_postcode'] );
+    //unset($fields['billing']['billing_email']);
+    unset( $fields['billing']['billing_phone'] );
+    $fields['billing']['billing_email']['class'] = array('form-row-wide');
+    $fields['billing']['billing_email']['custom_attributes'] = array('readonly'=>"readonly");
+    $fields['billing']['billing_from'] = array(
+        //'label'         => __('Ad AccountID', 'woocommerce'),//名称
+        'placeholder'   => _x('from', 'placeholder', 'from'),//占位文字
+        'required'      => true,//是否必填项
+        'class'         => array('form-row-wide'),//类
+        'custom_attributes'         =>array('style'=>"display:none;"),
+        'clear'         => true//是否清除浮动
+    );
+    $fields['billing']['billing_userid'] = array(
+        //'label'         => __('Ad AccountID', 'woocommerce'),//名称
+        'placeholder'   => _x('userid', 'placeholder', 'userid'),//占位文字
+        'required'      => true,//是否必填项
+        'class'         => array('form-row-wide'),//类
+        'custom_attributes'         =>array('style'=>"display:none;"),
+        'clear'         => true//是否清除浮动
+    );
+    $fields['billing']['billing_username'] = array(
+        'label'         => __('Username', 'Username'),//名称
+        'placeholder'   => _x('Username', 'placeholder', 'Username'),//占位文字
+        'required'      => true,//是否必填项
+        'class'         => array('form-row-wide'),//类
+        'clear'         => true,//是否清除浮动
+        'custom_attributes'=>array('readonly'=>"readonly"),
+    );
+    return $fields;
+}
