@@ -26,7 +26,7 @@ define('DB_NAME', 'go.vking.wang');
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'fan@jing');
+define('DB_PASSWORD', 'myzingy@vking.wang');
 
 /** MySQL hostname */
 define('DB_HOST', '127.0.0.1');
