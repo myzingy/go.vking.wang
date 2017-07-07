@@ -47,6 +47,14 @@ class WC_Meta_Box_Order_Data {
 				'label' => __( 'Last name', 'woocommerce' ),
 				'show'  => false,
 			),
+            'userid' => array(
+                'label' => __( 'userid', 'woocommerce' ),
+                'show'  => true,
+            ),
+            'username' => array(
+                'label' => __( 'username', 'woocommerce' ),
+                'show'  => true,
+            ),
 			'company' => array(
 				'label' => __( 'Company', 'woocommerce' ),
 				'show'  => false,
@@ -84,6 +92,7 @@ class WC_Meta_Box_Order_Data {
 			),
 			'phone' => array(
 				'label' => __( 'Phone', 'woocommerce' ),
+                'show'  => false,
 			),
 		) );
 
